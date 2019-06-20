@@ -14,32 +14,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package co.com.codesa.dev.service;
+package co.com.codesa.dev.controller;
 
-import co.com.codesa.dev.model.Member;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-import javax.ejb.Stateless;
-import javax.enterprise.event.Event;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Model;
 
-// The @Stateless annotation eliminates the need for manual transaction demarcation
-@Stateless
-public class MemberRegistration {
+import co.com.codesa.dev.model.Dev;
 
-    @Inject
-    private Logger log;
+@Model
+public class DevelopersMB {
 
-    @Inject
-    private EntityManager em;
+	private List<Dev> lDevelopers = new ArrayList<>();
 
-    @Inject
-    private Event<Member> memberEventSrc;
+	@PostConstruct
+	public void init() {
+		for (int i = 0; i < 80; i++) {
+			lDevelopers.add(new Dev("DEMO" + i));
+		}
+		Collections.shuffle(lDevelopers);
+	}
 
-    public void register(Member member) throws Exception {
-        log.info("Registering " + member.getName());
-        em.persist(member);
-        memberEventSrc.fire(member);
-    }
+	public List<Dev> getlDevelopers() {
+		return lDevelopers;
+	}
+
+	public void setlDevelopers(List<Dev> lDevelopers) {
+		this.lDevelopers = lDevelopers;
+	}
+
 }

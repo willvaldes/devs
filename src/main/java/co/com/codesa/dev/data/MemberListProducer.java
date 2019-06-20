@@ -25,7 +25,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 
-import co.com.codesa.dev.model.Member;
+import co.com.codesa.dev.model.Dev;
 
 @RequestScoped
 public class MemberListProducer {
@@ -33,17 +33,17 @@ public class MemberListProducer {
     @Inject
     private MemberRepository memberRepository;
 
-    private List<Member> members;
+    private List<Dev> members;
 
     // @Named provides access the return value via the EL variable name "members" in the UI (e.g.
     // Facelets or JSP view)
     @Produces
     @Named
-    public List<Member> getMembers() {
+    public List<Dev> getMembers() {
         return members;
     }
 
-    public void onMemberListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Member member) {
+    public void onMemberListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Dev member) {
         retrieveAllMembersOrderedByName();
     }
 
