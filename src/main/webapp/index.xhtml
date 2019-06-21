@@ -5,6 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
+	<h:outputStylesheet name="css/screen.css" />
 </h:head>
 <h:body>
 	<style type="text/css">
@@ -15,26 +16,37 @@
 
 
 	<h:form id="form">
-		<p:dataGrid var="dev" value="#{developersMB.lDevelopers}" columns="9"
-			layout="grid" paginator="false">
-			<p:panel style="width:150px; height:150px;">
+		<p:dataGrid var="dev" value="#{developersMB.lDevelopers}" columns="10" 
+			layout="grid" paginator="false" rowIndexVar="devRIV" style="background: black;">
+			<p:commandButton actionListener="#{developersMB.reveal(this)}"
+				value="#{devRIV}" update="frmDevElegido" styleClass="#{dev.estilo}"
+				onclick="PF('devElegido').show();">
 				<p:effect type="pulsate" event="click" />
-				<p:effect type="slide" event="load" delay="500">
+				<p:effect type="slide" event="load" speed="1500">
 					<f:param name="direction" value="#{dev.efecto1}" />
 				</p:effect>
-				<p:effect type="slide" event="load" delay="500">
+				<p:effect type="slide" event="load" speed="1500">
 					<f:param name="direction" value="#{dev.efecto2}" />
 				</p:effect>
-				<p:effect type="slide" event="load" delay="500">
+				<p:effect type="slide" event="load" speed="1500">
 					<f:param name="direction" value="#{dev.efecto3}" />
 				</p:effect>
-				<p:effect type="slide" event="load" delay="500">
+				<p:effect type="slide" event="load" speed="1500">
 					<f:param name="direction" value="#{dev.efecto4}" />
 				</p:effect>
-				<h:outputText value="#{dev.nombre}" />
-			</p:panel>
-
+			</p:commandButton>
 		</p:dataGrid>
 	</h:form>
+	<p:dialog widgetVar="devElegido" modal="true" closeOnEscape="true"
+		closable="false" draggable="false" dynamic="true" hideEffect="fade"
+		showHeader="false" showEffect="fade" resizable="false"
+		styleClass="dialogo">
+		<h:form id="frmDevElegido">
+			<p:panel styleClass="#{developersMB.devElegido.estilo}">
+				<h:outputText value="#{developersMB.devElegido.nombre}"
+					styleClass="pnl-span" />
+			</p:panel>
+		</h:form>
+	</p:dialog>
 </h:body>
 </html>

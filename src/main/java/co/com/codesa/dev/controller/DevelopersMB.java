@@ -29,13 +29,19 @@ import co.com.codesa.dev.model.Dev;
 public class DevelopersMB {
 
 	private List<Dev> lDevelopers = new ArrayList<>();
+	private Dev devElegido;
 
 	@PostConstruct
 	public void init() {
-		for (int i = 0; i < 80; i++) {
+		for (int i = 0; i < 81; i++) {
 			lDevelopers.add(new Dev("DEMO" + i));
 		}
 		Collections.shuffle(lDevelopers);
+	}
+
+	public void reveal(int id) {
+		devElegido = lDevelopers.get(id);
+		devElegido.setEstilo("pnl-avatar");
 	}
 
 	public List<Dev> getlDevelopers() {
@@ -44,6 +50,14 @@ public class DevelopersMB {
 
 	public void setlDevelopers(List<Dev> lDevelopers) {
 		this.lDevelopers = lDevelopers;
+	}
+
+	public Dev getDevElegido() {
+		return devElegido;
+	}
+
+	public void setDevElegido(Dev devElegido) {
+		this.devElegido = devElegido;
 	}
 
 }

@@ -28,28 +28,27 @@ public class Dev implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private String imagen;
+	private String estilo;
 	private String demo;
 	private String efecto1;
 	private String efecto2;
 	private String efecto3;
 	private String efecto4;
-	
-	
-	
+
 	public Dev() {
 		super();
 	}
 
-
 	public Dev(String nombre) {
 		super();
 		this.nombre = nombre;
+		this.estilo = "btn-back";
 		List<String> lEfectos = new ArrayList<>();
 		lEfectos.add("'up'");
 		lEfectos.add("'right'");
 		lEfectos.add("'down'");
 		lEfectos.add("'left'");
-		
+
 		Collections.shuffle(lEfectos);
 
 		this.efecto1 = lEfectos.get(0);
@@ -61,44 +60,65 @@ public class Dev implements Serializable {
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getImagen() {
-		return imagen;
+
+	public String getEstilo() {
+		return estilo;
 	}
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
+
+	public void setEstilo(String estilo) {
+		this.estilo = estilo;
 	}
+
 	public String getDemo() {
 		return demo;
 	}
+
 	public void setDemo(String demo) {
 		this.demo = demo;
 	}
+
 	public String getEfecto1() {
 		return efecto1;
 	}
+
 	public void setEfecto1(String efecto1) {
 		this.efecto1 = efecto1;
 	}
+
 	public String getEfecto2() {
 		return efecto2;
 	}
+
 	public void setEfecto2(String efecto2) {
 		this.efecto2 = efecto2;
 	}
+
 	public String getEfecto3() {
 		return efecto3;
 	}
+
 	public void setEfecto3(String efecto3) {
 		this.efecto3 = efecto3;
 	}
+
 	public String getEfecto4() {
 		return efecto4;
 	}
+
 	public void setEfecto4(String efecto4) {
 		this.efecto4 = efecto4;
 	}
-	
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 }
