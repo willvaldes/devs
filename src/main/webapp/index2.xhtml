@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<!-- 	<h:outputStylesheet name="css/screen.css" /> -->
+	<style type="text/css">
+    .image-ring .ui-ring-item {
+        border:0 none;
+    }
+ 
+    .image-ring .ui-ring-item img {
+        width: 100%;
+    }
+ 
+    .ui-ring button {
+        font-size: 1em !important;
+    }
+ 
+    .value {
+        font-weight: bold;
+    }
+</style>
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:ring var="dev" value="#{developersMB.lDevelopers}" autoplay="true"
+			autoplayDuration="1000" easing="easeInOutBack">
+			<h:outputText value="#{dev.nombre}" />
+		</p:ring>
+
+		<h3>Images with Custom Easing</h3>
+		<p:ring id="custom" value="#{developersMB.lDevelopers}" var="car"
+			styleClass="image-ring" easing="easeInOutBack">
+			<p:graphicImage id="img" name="/demo/images/car/#{car.imagen}-big.gif" />
+		</p:ring>
+	</h:form>
+</h:body>
+</html>

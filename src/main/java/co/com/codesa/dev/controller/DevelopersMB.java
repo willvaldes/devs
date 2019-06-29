@@ -33,7 +33,7 @@ public class DevelopersMB {
 
 	@PostConstruct
 	public void init() {
-		for (int i = 0; i < 81; i++) {
+		for (int i = 0; i < 10; i++) {
 			lDevelopers.add(new Dev("DEMO" + i));
 		}
 		Collections.shuffle(lDevelopers);
