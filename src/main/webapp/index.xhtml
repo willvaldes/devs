@@ -16,23 +16,15 @@
 
 
 	<h:form id="form">
-		<p:dataGrid var="dev" value="#{developersMB.lDevelopers}" columns="10" 
-			layout="grid" paginator="false" rowIndexVar="devRIV" style="background: black;">
-			<p:commandButton actionListener="#{developersMB.reveal(this)}"
-				value="#{devRIV}" update="frmDevElegido" styleClass="#{dev.estilo}"
+		<p:dataGrid var="dev" value="#{developersMB.lDevelopers}" columns="11"
+			layout="grid" paginator="false" rowIndexVar="devRIV"
+			style="background: black;">
+			<p:commandButton action="#{developersMB.reveal()}" value="#{devRIV}"
+				update="frmDevElegido" styleClass="#{dev.estilo}"
 				onclick="PF('devElegido').show();">
 				<p:effect type="pulsate" event="click" />
-				<p:effect type="slide" event="load" speed="1500">
-					<f:param name="direction" value="#{dev.efecto1}" />
-				</p:effect>
-				<p:effect type="slide" event="load" speed="1500">
-					<f:param name="direction" value="#{dev.efecto2}" />
-				</p:effect>
-				<p:effect type="slide" event="load" speed="1500">
+				<p:effect type="shake" event="load" speed="1500">
 					<f:param name="direction" value="#{dev.efecto3}" />
-				</p:effect>
-				<p:effect type="slide" event="load" speed="1500">
-					<f:param name="direction" value="#{dev.efecto4}" />
 				</p:effect>
 			</p:commandButton>
 		</p:dataGrid>
@@ -42,7 +34,7 @@
 		showHeader="false" showEffect="fade" resizable="false"
 		styleClass="dialogo">
 		<h:form id="frmDevElegido">
-			<p:panel styleClass="#{developersMB.devElegido.estilo}">
+			<p:panel style="text-align:center;">
 				<h:outputText value="#{developersMB.devElegido.nombre}"
 					styleClass="pnl-span" />
 			</p:panel>

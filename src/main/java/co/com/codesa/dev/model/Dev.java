@@ -34,6 +34,7 @@ public class Dev implements Serializable {
 	private String efecto2;
 	private String efecto3;
 	private String efecto4;
+	private String numero;
 
 	public Dev() {
 		super();
