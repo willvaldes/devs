@@ -5,40 +5,13 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
-	<h:outputStylesheet name="css/screen.css" />
 </h:head>
 <h:body>
-	<style type="text/css">
-.value {
-	font-weight: bold;
-}
-</style>
-
-
-	<h:form id="form">
-		<p:dataGrid var="dev" value="#{developers2MB.lDevelopers}" columns="11"
-			layout="grid" paginator="false" rowIndexVar="devRIV"
-			style="background: black;">
-			<p:commandButton action="#{developers2MB.reveal()}" value="#{devRIV}"
-				update="frmDevElegido" styleClass="#{dev.estilo}"
-				onclick="PF('devElegido').show();">
-				<p:effect type="pulsate" event="click" />
-				<p:effect type="shake" event="load" speed="1500">
-					<f:param name="direction" value="#{dev.efecto3}" />
-				</p:effect>
-			</p:commandButton>
-		</p:dataGrid>
+	<h:form>
+		<h:outputText id="txt_count" value="#{developers2MB.number}" />
+		<p:poll interval="3" listener="#{developers2MB.increment}"
+			update="txt_count" />
 	</h:form>
-	<p:dialog widgetVar="devElegido" modal="true" closeOnEscape="true"
-		closable="false" draggable="false" dynamic="true" hideEffect="fade"
-		showHeader="false" showEffect="fade" resizable="false"
-		styleClass="dialogo">
-		<h:form id="frmDevElegido">
-			<p:panel style="text-align:center;">
-				<h:outputText value="#{developers2MB.devElegido.nombre}"
-					styleClass="pnl-span" />
-			</p:panel>
-		</h:form>
-	</p:dialog>
+
 </h:body>
 </html>

@@ -16,10 +16,10 @@
 
 
 	<h:form id="form">
-		<p:dataGrid var="dev" value="#{developersMB.lDevelopers}" columns="9"
+		<p:dataGrid var="dev" value="#{azarMB.lDevelopers}" columns="9"
 			layout="grid" paginator="false" rowIndexVar="devRIV"
 			style="background: black;">
-			<p:commandButton action="#{developersMB.reveal()}" value="#{devRIV}"
+			<p:commandButton action="#{azarMB.reveal()}" value="#{devRIV+1}"
 				update="frmDevElegido" styleClass="#{dev.estilo}"
 				onclick="PF('devElegido').show();">
 				<p:effect type="pulsate" event="click" />
@@ -32,10 +32,10 @@
 	<p:dialog widgetVar="devElegido" modal="true" closeOnEscape="true"
 		closable="false" draggable="false" dynamic="true" hideEffect="fade"
 		showHeader="false" showEffect="fade" resizable="false"
-		styleClass="dialogo">
+		styleClass="dialogo" position="0,0">
 		<h:form id="frmDevElegido">
 			<p:panel style="text-align:center;">
-				<h:outputText value="#{developersMB.devElegido.nombre}"
+				<h:outputText value="#{azarMB.devElegido.nombre}"
 					styleClass="pnl-span" />
 			</p:panel>
 		</h:form>

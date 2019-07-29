@@ -16,73 +16,37 @@
  */
 package co.com.codesa.dev.controller;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Model;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
-import co.com.codesa.dev.model.Dev;
+@ManagedBean
+@ViewScoped
+public class Developers2MB implements Serializable {
 
-@Model
-public class Developers2MB {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-	private List<Dev> lDevelopers = new ArrayList<>();
-	private Dev devElegido;
-	private String styleBtn1 = "";
-	private String styleBtn2 = "display:none;";
+	private int number;
 
 	@PostConstruct
-	public void init() {
-		for (int i = 0; i < 61; i++) {
-			lDevelopers.add(new Dev("PUERTA SIMBAQUEBA ANDRES FELIPE"));
-		}
-		Collections.shuffle(lDevelopers);
+	private void init() {
+		number = 2;
 	}
 
-	public void reveal() {
-
-		Collections.shuffle(lDevelopers);
-		devElegido = lDevelopers.get(0);
-		devElegido.setEstilo("pnl-avatar");
+	public int getNumber() {
+		return number;
 	}
 
-	public void renderizarBotones() {
-		styleBtn1 = "display:none;";
-		styleBtn2 = "";
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
-	public List<Dev> getlDevelopers() {
-		return lDevelopers;
+	public void increment() {
+		number = number++;
 	}
-
-	public void setlDevelopers(List<Dev> lDevelopers) {
-		this.lDevelopers = lDevelopers;
-	}
-
-	public Dev getDevElegido() {
-		return devElegido;
-	}
-
-	public void setDevElegido(Dev devElegido) {
-		this.devElegido = devElegido;
-	}
-
-	public String getStyleBtn1() {
-		return styleBtn1;
-	}
-
-	public void setStyleBtn1(String styleBtn1) {
-		this.styleBtn1 = styleBtn1;
-	}
-
-	public String getStyleBtn2() {
-		return styleBtn2;
-	}
-
-	public void setStyleBtn2(String styleBtn2) {
-		this.styleBtn2 = styleBtn2;
-	}
-
 }

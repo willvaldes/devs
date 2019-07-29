@@ -92,7 +92,6 @@ public class DevelopersMB {
 		lDevelopers.add(new Dev("SILVA SANCHEZ DIDIER FABIAN"));
 		lDevelopers.add(new Dev("TELLEZ ACOSTA JUAN FELIPE"));
 		lDevelopers.add(new Dev("TIERRADENTRO OROZCO JUAN JOSE"));
-		lDevelopers.add(new Dev("VALENZUELA PARDO RICHARD EDUARDO"));
 		lDevelopers.add(new Dev("VEGA VEGA DANIEL ALBERTO"));
 		lDevelopers.add(new Dev("YAIMA GOMEZ MILTON RODOLFO"));
 		lDevelopers.add(new Dev("ZAMBRANO TABORDA BRIAN EDUARDO"));
@@ -144,4 +143,10 @@ public class DevelopersMB {
 		this.styleBtn2 = styleBtn2;
 	}
 
+	public static void main(String[] args) {
+		int x = 2, y = 3;
+		x = y++ + x++;
+		y = ++y + ++x;
+		System.out.println(x+y);
+	}
 }
